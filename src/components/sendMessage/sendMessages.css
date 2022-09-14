@@ -1,0 +1,42 @@
+.sendMessages{
+    height: 50px;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.send{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.send-messages-input{
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #2f2d52;
+    font-size: 18px;
+}
+
+.send-messages-input::placeholder{
+    color: lightgray;
+}
+
+.send-icons{
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.send-btn{
+    border: none;
+    padding: 7px 10px;
+    cursor:pointer;
+    background-color: #5d5b8d;
+    border-radius:5px ;
+    color: white;
+}

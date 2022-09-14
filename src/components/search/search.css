@@ -1,0 +1,40 @@
+.search{
+    border-bottom: 1px solid grey;
+}
+
+.search-form{
+    padding: 10px;
+}
+
+.search-input{
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 5px;
+    border:0.5px solid grey;
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+.search-input::placeholder{
+    color: lightgray;
+}
+
+.search-image{
+    height: 50px;
+    width: 50px;
+    border-radius:50% ;
+    object-fit: cover;
+}
+
+.user-chat{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.user-chat:hover{
+    background-color: #2f2d52;
+}

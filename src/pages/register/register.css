@@ -1,0 +1,82 @@
+.formContainer{
+    background-color: #697583;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formWrapper{
+    background-color: white;
+    padding:20px 60px ;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.logo{
+    font-weight: bold;
+    font-size: 25px;
+    color: #4b4991;
+    
+}
+
+.title{
+    font-size: 16px;
+    color: #4b4991;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.input{
+    height: 20px;
+    border-radius: 5px;
+    border: none;
+    border-bottom:1px solid #697583;
+    padding: 15px;
+    width: 220px;
+}
+
+.input::placeholder{
+    color: rgb(175, 175, 175);
+}
+
+.reg-btn{
+    background-color: #4b4991;
+    color: white;
+    border: none;
+    padding:10px;
+    cursor: pointer;
+}
+
+.p-tag{
+    color: #697583;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+label{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+img{
+    width: 30px;
+    height: 50px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.upload-label{
+    font-size: 14px;
+    color:rgb(175, 175, 175) ;
+}

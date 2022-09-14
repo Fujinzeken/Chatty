@@ -1,0 +1,41 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    background-color: rgb(64, 57, 80);
+    height: 50px;
+    padding: 10px;
+    justify-content: space-between;
+    color: white;
+}
+
+.logo-name{
+    font-weight: bold;
+ 
+}
+
+.btn{
+    background-color: #5d5b8d;
+    color: #ddddf7;
+    border:none ;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.user{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.user-name{
+    font-size: 14px
+}
+
+.navbar-image{
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ddddf7;
+}
