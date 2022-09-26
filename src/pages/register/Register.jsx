@@ -5,12 +5,15 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth, storage, db} from "../../Firebase";
 import {uploadBytesResumable, getDownloadURL, ref } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore"; 
+import { useNavigate, Link } from "react-router-dom";
 
 
 
 
 function Register() {
+  const navigate = useNavigate()
   const [error, setError] = useState(false)
+
   const handleSubmit = async (e)=>{
     e.preventDefault()
     const displayName = e.target[0].value
@@ -56,12 +59,17 @@ uploadTask.on('state_changed',
         displayName,
         photoURL:downloadURL
       })
+      // store user info in firestore using userId 
       await setDoc(doc(db, "Users", res.user.uid), {
         uid:res.user.uid,
         displayName,
         email,
         photoURL: downloadURL
       });
+
+      await setDoc(doc(db, "userChat", res.user.uid), {})
+
+      navigate('/')
     });
   }
 );
@@ -91,8 +99,9 @@ uploadTask.on('state_changed',
                 <input type='file' id='file' style={{display:"none"}}/>
                 <button className='reg-btn'>Get Chatty</button>
                 {error && <span>Something went wrong</span>}
+                <button>Sign in with google</button>
             </form>
-            <p className='p-tag'>Already have an account? Login </p>
+            <p className='p-tag'>Already have an account? <Link to='/login'>Login</Link> </p>
         </div>
       </div>
     </div>

@@ -1,41 +1,45 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { doc, onSnapshot } from "firebase/firestore";
 import "./chats.css"
+import { db } from '../../Firebase';
+import { AuthContext } from '../../context/AuthContext';
+import { ChatContext } from '../../context/ChatContext';
 
 function Chats() {
+  const {currentUser} = useContext(AuthContext)
+  const {dispatch} = useContext(ChatContext)
+  const [chats, setChats]= useState([])
+
+  useEffect(()=>{
+    const getChats=()=>{
+      const unsub = onSnapshot(doc(db, "userChat", currentUser.uid), (doc) => {
+        setChats(doc.data());
+        //convert initial chats object to array
+        // console.log(Object.entries(chats))
+    });
+  
+    return ()=>{unsub()}
+    }
+    currentUser.uid && getChats()
+  }, [chats, currentUser.uid])
+
+  const handleSelect = (u)=>{
+    dispatch({type:"CHANGE_USER", payload:u})
+  }
+
+
   return (
     <div className='chats'>
-      <div className='user-chat'>
-        <img className='search-image' src='https://images.unsplash.com/photo-1662758949073-56537345d85d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' 
+    {Object.entries(chats)?.map((chat)=>{
+      return (<div className='user-chat' key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)}>
+        <img className='search-image' src={chat[1].userInfo.photoURL}
         alt=''/>
         <div className='user-chat-info'>
-          <span>Jane</span>
-          <p>Hello</p>
+          <span>{chat[1].userInfo.displayName}</span>
+          <p>{chat[1].userInfo.lastMessage?.text}</p>
         </div>
-      </div>
-      <div className='user-chat'>
-        <img className='search-image' src='https://images.unsplash.com/photo-1662758949073-56537345d85d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' 
-        alt=''/>
-        <div className='user-chat-info'>
-          <span>Jane</span>
-          <p>Hello</p>
-        </div>
-      </div>
-      <div className='user-chat'>
-        <img className='search-image' src='https://images.unsplash.com/photo-1662758949073-56537345d85d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' 
-        alt=''/>
-        <div className='user-chat-info'>
-          <span>Jane</span>
-          <p>Hello</p>
-        </div>
-      </div>
-      <div className='user-chat'>
-        <img className='search-image' src='https://images.unsplash.com/photo-1662758949073-56537345d85d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60' 
-        alt=''/>
-        <div className='user-chat-info'>
-          <span>Jane</span>
-          <p>Hello</p>
-        </div>
-      </div>
+      </div>)
+    })}
       
     </div>
   )
