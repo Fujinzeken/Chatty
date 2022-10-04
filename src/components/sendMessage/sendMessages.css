@@ -20,6 +20,7 @@
     outline: none;
     color: #2f2d52;
     font-size: 18px;
+    
 }
 
 .send-messages-input::placeholder{
@@ -39,4 +40,10 @@
     background-color: #5d5b8d;
     border-radius:5px ;
     color: white;
+}
+
+@media screen and (max-width:600px){
+    .sendMessages{
+        padding: 20px;
+    }
 }

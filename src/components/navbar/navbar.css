@@ -52,7 +52,7 @@
 @media screen and (max-width:600px) {
     .btn{
         position: absolute;
-        bottom:80px ;
+        bottom:100px ;
         width: 100px;
         padding: 5px;
         border-radius: 10px;

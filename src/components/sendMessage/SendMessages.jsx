@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import "./sendMessages.css"
-import pics from "../../image/pics_icon.png"
 import attach from "../../image/attach_img.png"
 import { AuthContext } from '../../context/AuthContext'
 import { ChatContext } from '../../context/ChatContext'
@@ -69,10 +68,9 @@ await updateDoc(doc(db, "chats", data.chatId),{
         value={text}
       />
       <div className='send'>
-        <img className='send-icons' src={attach} alt=''/>
         <input type='file' style={{display:"none"}} id='file' onChange={e=>setImg(e.target.files[0])}/>
         <label htmlFor='file'>
-          <img className='send-icons' src={pics} alt=''/>
+          <img className='send-icons' src={attach} alt=''/>
         </label>
         <button className='send-btn' onClick={handleSend}>Send</button>
       </div>
