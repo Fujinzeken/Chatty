@@ -2,3 +2,9 @@
     flex: 1;
     background-color: rgb(41, 41, 54);
 }
+
+@media screen and (max-width:600px) {
+    .sidebar{
+        width: 20px;
+    }
+} 

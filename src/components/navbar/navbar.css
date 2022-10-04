@@ -10,9 +10,10 @@
 
 .logo-name{
     font-weight: bold;
- 
+    display: flex;
 }
 
+    
 .btn{
     background-color: #5d5b8d;
     color: #ddddf7;
@@ -38,4 +39,22 @@
     border-radius: 50%;
     object-fit: cover;
     background-color: #ddddf7;
+}
+
+
+@media screen and (max-width:600px) {
+    .logo-name{
+        display:none;
+    }
+}
+
+
+@media screen and (max-width:600px) {
+    .btn{
+        position: absolute;
+        bottom:80px ;
+        width: 100px;
+        padding: 5px;
+        border-radius: 10px;
+    }
 }

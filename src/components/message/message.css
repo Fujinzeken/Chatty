@@ -11,6 +11,7 @@
     color: grey;
     font-size: 14px;
     margin-bottom: 20px;
+
 }
 .messageInfo_img{
     height: 40px;
@@ -51,4 +52,15 @@
     color: white;
     border-radius:10px 0 10px 10px ;
     
+}
+@media screen and (max-width:600px){
+    .messageInfo_img{
+        display: none;
+    }
+    .messageContent{
+        margin-top: 20px;
+    }
+    .messageInfo>span{
+        display: none;
+    }
 }

@@ -4,3 +4,9 @@
     height: calc(100% - 160px);
     overflow-y: scroll;
 }
+
+@media screen and (max-width:600px){
+    .messages{
+        padding: 0;
+    }
+}

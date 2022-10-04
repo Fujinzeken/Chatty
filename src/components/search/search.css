@@ -38,3 +38,10 @@
 .user-chat:hover{
     background-color: #2f2d52;
 }
+
+@media screen and (max-width:600px){
+    .search-input{
+        border:none ;
+        max-width:100px ;
+    }
+}
