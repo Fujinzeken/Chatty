@@ -7,6 +7,7 @@ function Message({message}) {
   const {currentUser} = useContext(AuthContext);
   const {data} = useContext(ChatContext)
 
+  console.log(message);
   const ref = useRef()
   useEffect(()=>{
     ref.current?.scrollIntoView({behaviour:"smooth"})
